@@ -1,4 +1,4 @@
-package geeksForGeeks.trees;
+package trees;
 
 import java.util.Stack;
 
@@ -19,13 +19,13 @@ public class PostOrderTraversal {
 		root.getRight().getLeft().setRight(new TreeNode(13));
 		root.getRight().getRight().setLeft(new TreeNode(14));
 		root.getRight().getRight().setRight(new TreeNode(15));
-		
+
 		System.out.print("PostOrder Traversal with recursion:\t");
 		postOrderWithRecursion(root);
 		System.out.print("\nPostOrder Traversal without recursion:\t");
 		postOrderWithoutRecursion(root);
 	}
-	
+
 	static void postOrderWithoutRecursion(TreeNode root) {
 		if (null == root) {
 			return;
@@ -33,8 +33,8 @@ public class PostOrderTraversal {
 		TreeNode temp = root;
 		Stack<TreeNode> lookup = new Stack<TreeNode>();
 		Stack<Boolean> state = new Stack<Boolean>();
-		while(true) {
-			while(null != temp) {
+		while (true) {
+			while (null != temp) {
 				lookup.push(temp);
 				state.push(false);
 				temp = temp.getLeft();
@@ -47,7 +47,7 @@ public class PostOrderTraversal {
 				state.push(true);
 				temp = lookup.peek().getRight();
 				continue;
-			}else {
+			} else {
 				state.pop();
 				temp = lookup.pop();
 				System.out.print(temp.getdata() + "\t");
@@ -56,7 +56,7 @@ public class PostOrderTraversal {
 		}
 		return;
 	}
-	
+
 	static void postOrderWithRecursion(TreeNode root) {
 		if (null == root) {
 			return;

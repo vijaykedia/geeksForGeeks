@@ -1,5 +1,5 @@
 //http://www.geeksforgeeks.org/dynamic-programming-set-3-longest-increasing-subsequence/
-package geeksForGeeks.dynamicProgramming;
+package dynamicProgramming;
 
 import java.util.Scanner;
 
@@ -13,16 +13,16 @@ public class LongestIncreasingSubsequence {
 		for (int i = 0; i < size; i++) {
 			numbers[i] = in.nextInt();
 		}
-		
+
 		int[] dp = new int[size];
 		for (int i = 1; i < size; i++) {
-			for(int j = 0; j < i; j++) {
+			for (int j = 0; j < i; j++) {
 				if (numbers[i] > numbers[j]) {
-					
+
 				}
 			}
 		}
-		
+
 		in.close();
 	}
 }

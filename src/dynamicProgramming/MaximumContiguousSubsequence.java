@@ -1,5 +1,5 @@
 //http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
-package geeksForGeeks.dynamicProgramming;
+package dynamicProgramming;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,16 +16,16 @@ public class MaximumContiguousSubsequence {
 		}
 		int[] dp = new int[size];
 		dp[0] = numbers[0];
-		for (int i = 1; i < size; i++){
+		for (int i = 1; i < size; i++) {
 			dp[i] = numbers[i];
-			if (dp[i] < dp[i -1] + numbers[i]) {
-				dp[i] = dp[i -1] + numbers[i];
+			if (dp[i] < dp[i - 1] + numbers[i]) {
+				dp[i] = dp[i - 1] + numbers[i];
 			}
 		}
 		System.out.println(Arrays.toString(dp));
 		Arrays.sort(dp);
 		System.out.println(Arrays.toString(dp));
-		System.out.println(dp[size-1]);
+		System.out.println(dp[size - 1]);
 		in.close();
 	}
 }

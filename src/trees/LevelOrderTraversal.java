@@ -1,4 +1,4 @@
-package geeksForGeeks.trees;
+package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,14 +15,14 @@ public class LevelOrderTraversal {
 		System.out.print("LevelOrder Traversal without recursion:\t");
 		levelOrder(root);
 	}
-	
+
 	static void levelOrder(TreeNode root) {
 		if (null == root) {
 			return;
 		}
 		TreeNode temp = root;
 		Queue<TreeNode> lookup = new LinkedList<TreeNode>();
-		while(true) {
+		while (true) {
 			System.out.print(temp.getdata() + "\t");
 			if (null != temp.getLeft()) {
 				lookup.add(temp.getLeft());

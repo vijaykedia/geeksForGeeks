@@ -1,8 +1,8 @@
-package geeksForGeeks.trees;
+package trees;
 
 import java.util.Stack;
 
-public class InOrderTraversal {
+public class PreOrderTraversal {
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(1);
 		root.setLeft(new TreeNode(2));
@@ -11,20 +11,21 @@ public class InOrderTraversal {
 		root.getLeft().setRight(new TreeNode(5));
 		root.getRight().setLeft(new TreeNode(6));
 		root.getRight().setRight(new TreeNode(7));
-		System.out.print("InOrder Traversal without recursion:\t");
-		inOrderWithoutRecursion(root);
-		System.out.print("\nInOrder Traversal with recursion:\t");
-		inOrderWithRecursion(root);
+		System.out.print("PreOrder Traversal without recursion:\t");
+		preOrderWithoutRecursion(root);
+		System.out.print("\nPreOrder Traversal with recursion:\t");
+		preOrderWithRecursion(root);
 	}
-	
-	static void inOrderWithoutRecursion(TreeNode root) {
+
+	static void preOrderWithoutRecursion(TreeNode root) {
 		if (null == root) {
 			return;
 		}
 		TreeNode temp = root;
 		Stack<TreeNode> lookup = new Stack<TreeNode>();
-		while(true) {
-			while(null != temp) {
+		while (true) {
+			while (null != temp) {
+				System.out.print(temp.getdata() + "\t");
 				lookup.push(temp);
 				temp = temp.getLeft();
 			}
@@ -32,19 +33,18 @@ public class InOrderTraversal {
 				break;
 			} else {
 				temp = lookup.pop();
-				System.out.print(temp.getdata() + "\t");
 				temp = temp.getRight();
 			}
 		}
 		return;
 	}
-	
-	static void inOrderWithRecursion(TreeNode root) {
+
+	static void preOrderWithRecursion(TreeNode root) {
 		if (null == root) {
 			return;
 		}
-		inOrderWithRecursion(root.getLeft());
 		System.out.print(root.getdata() + "\t");
-		inOrderWithRecursion(root.getRight());
+		preOrderWithRecursion(root.getLeft());
+		preOrderWithRecursion(root.getRight());
 	}
 }
